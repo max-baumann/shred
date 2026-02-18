@@ -1,0 +1,38 @@
+code_snippets/
+venv/
+env_*/
+venv_*/
+data_test/
+.vscode/
+*.code-workspace
+__pychace__/
+.idea/
+.ipynb_checkpoints
+
+#pyenv
+.python-version
+
+# project assests
+./.streamlit/
+# Compiled python modules.
+*.pyc
+
+# Setuptools distribution folder.
+/dist/
+
+# Python egg metadata, regenerated from source files by setuptools.
+/*.egg-info
+
+# Secrets
+config*.json
+
+#data/testing
+playground.ipynb
+data/
+tmp.txt
+
+
+
+# Project Specific
+notebooks/
+./app/app_state*.txt
