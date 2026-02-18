@@ -26,13 +26,6 @@ Because somewhere along the line, people decided that the correct way to build A
 4. Hammer the server with parallel requests  
 5. Call it “research”
 
-Congratulations. You invented **being a jerk**.
-
-S.H.R.E.D. exists so you can:
-- Stop scraping live sites like a raccoon in a datacenter
-- Stop pretending “but it’s just metadata” makes it okay
-- Stop wasting bandwidth, goodwill, and karma
-
 Wikipedia already publishes **compressed dumps**.  
 They are **meant** to be used.  
 Use them. Like an adult.
