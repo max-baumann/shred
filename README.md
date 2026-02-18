@@ -40,7 +40,31 @@ S.H.R.E.D. takes:
 - ️ Stores everything in a **space-efficient local database**
 -  Enables **expert-level RAG queries** without giant vector stores
 
-All while:
-- Respecting infrastructure
-- Avoiding live scraping
-- Not being That Guy™
+### In more Detail
+The system transforms raw Wikipedia HTML into structured, machine-readable data through a three-stage process:
+
+
+### 1. The Core Pipeline
+The system transforms raw Wikipedia HTML into structured, machine-readable data through a three-stage process:
+**Stage 1: Shredding (`WikiShredder`)**
+    *   **Input:** Raw HTML.
+    *   **Extraction:** Separates "heavy" semi-structured data (Infoboxes, Tables, Formulas) into a **Sidecar JSON** dictionary.
+    *   **Replacement:** Injects robust tokens (e.g., `**[<<TABLE: TBL_123 | GDP Data>>]**`) into the text where extraction occurred.
+    *   **Normalization:** Rewrites image tags to the `zim://` protocol (Zero-Extraction) and converts the remaining flow text into clean **Markdown**.
+**Stage 2: Chunking (`UniversalChunker`)**
+    *   **Input:** Cleaned Markdown.
+    *   **Logic:** Parses the Markdown header structure to build a section tree. Applies semantic grouping rules (merging small paragraphs, splitting long ones via sliding window) to create optimal contexts for vector search.
+    *   **Output:** Hierarchical chunks with stable, deterministic IDs.
+**Stage 3: Storage (`WikiStorage`)**
+    *   **Backend:** PostgreSQL + `pgvector`.
+    *   **Schema:** Stores the full Article (Text + Sidecar), individual Chunks, and their computed Vector Embeddings in a relational structure.
+
+### 2. The "Zero-Extraction" Media Layer
+*   **Storage:** Images are **not** extracted to individual files. They remain compressed inside the source ZIM file.
+*   **Access:** The text references images via `zim://I/filename.jpg`.
+*   **Serving:** A lightweight **FastAPI Media Server** uses `libzim` to read binary blobs directly from the archive on demand, preventing file system exhaustion.
+
+### 3. Data Model
+*   **Main Text:** Lightweight Markdown optimized for LLM reading.
+*   **Sidecar:** Structured JSON holding metadata, CSV representations of tables, and raw infobox HTML for specialized parsing.
+*   **Vector Index:** A semantic search layer built on the semantically chunked text.
