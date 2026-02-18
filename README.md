@@ -8,7 +8,7 @@ This is like sooo work in progress and yes significant parts where written by Cl
 
 ## What Is This?
 
-**S.H.R.E.D.** is a **local, space-efficient RAG architecture** that takes **compressed Wikipedia archives**, parses them into **structured Markdown** and **semantic tokens**, and lets you run **high-speed expert-system queries** without hauling around petabytes of junk or harassing volunteer-run websites.
+**S.H.R.E.D.** is a **local, space-efficient RAG architecture** that takes **compressed Wikipedia archives**, parses them into **structured Markdown** and **semantic tokens**, and lets you run **high-speed expert-system queries** without hauling around petabytes of junk or harassing volunteer-run websites. Special attention was given to extracting structured information like tables, formulars and infoboxes. It's all about making a wiki more machine readable.
 
 In short:
 -  **Offline**
