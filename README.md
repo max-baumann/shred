@@ -38,7 +38,7 @@ S.H.R.E.D. takes:
 -  Parses them into clean, navigable **Markdown**
 -  Extracts **semantic tokens** for retrieval
 - ️ Stores everything in a **space-efficient local database**
--  Enables **expert-level RAG queries** without giant vector stores
+-  Enables **expert-level RAG queries**
 
 ## In more Detail
 The system transforms raw Wikipedia HTML into structured, machine-readable data through a three-stage process:
