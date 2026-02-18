@@ -1,3 +1,5 @@
+This is like sooo work in progress and yes siginicant parts where written by Claude Sonnet 4.5.
+
 # S.H.R.E.D.
 **Semantic Hybrid Retrieval & Extraction Database**
 
